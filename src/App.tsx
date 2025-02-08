@@ -3,12 +3,8 @@ import './App.scss';
 import Carousel from './components/Carousel';
 import { useState } from 'react';
 
-interface State {
-  images: string[];
-}
-
 const App: React.FC = () => {
-  const [images]: State = useState([
+  const images = [
     './img/1.png',
     './img/2.png',
     './img/3.png',
@@ -19,7 +15,7 @@ const App: React.FC = () => {
     './img/8.png',
     './img/9.png',
     './img/10.png',
-  ]);
+  ];
 
   const [currentWidth, setWidth] = useState(130);
   const [currentFrameSize, setFrameSize] = useState(3);
@@ -48,7 +44,7 @@ const App: React.FC = () => {
       />
       <input
         value={currentDuration}
-        type="text"
+        type="number"
         placeholder="animation duration"
         onChange={e => setDuration(Number(e.target.value))}
       />

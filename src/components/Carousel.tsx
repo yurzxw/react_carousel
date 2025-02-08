@@ -23,13 +23,13 @@ const Carousel: React.FC<Props> = ({
 
   const handlePrev = () => {
     setActiveIndex(prevIndex =>
-      prevIndex === 0 ? Math.round(images.length / step) + 1 : prevIndex - 1,
+      prevIndex === 0 ? Math.ceil(images.length / step) - 1 : prevIndex - 1,
     );
   };
 
   const handleNext = () => {
     setActiveIndex(prevIndex =>
-      prevIndex === Math.round(images.length / step) + 1 ? 0 : prevIndex + 1,
+      prevIndex === Math.ceil(images.length / step) - 1 ? 0 : prevIndex + 1,
     );
   };
 
@@ -67,7 +67,7 @@ const Carousel: React.FC<Props> = ({
         data-cy="next"
         onClick={() => handleNext()}
         className={classNames({
-          disabled: activeIndex === Math.round(images.length / 3),
+          disabled: activeIndex === Math.ceil(images.length / step) - 1,
         })}
       >
         &#8594;
